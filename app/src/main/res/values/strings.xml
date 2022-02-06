@@ -5,4 +5,8 @@
     <string name="javascript">JavaScript</string>
     <string name="button_for_checkbox">Button for Checkbox</string>
     <string name="checkbox">CheckBox</string>
+    <string name="radiobutton">RadioButton</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="button_for_radiobutton">Button For RadioGroup</string>
 </resources>

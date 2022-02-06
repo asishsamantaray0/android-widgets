@@ -4,6 +4,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +16,8 @@ public class MainActivity extends AppCompatActivity {
     private CheckBox checkBox1;
     private CheckBox checkBox2;
     private CheckBox checkBox3;
+
+    private RadioGroup radioGroup;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -30,10 +34,17 @@ public class MainActivity extends AppCompatActivity {
         // OnClick Handler for CheckBox Button.
         btnCheckBox.setOnClickListener((view -> checkBoxButtonHandler()));
 
+        radioGroup = findViewById(R.id.rg_gender);
+
+        // Button for RadioButton.
+        Button btnGender = findViewById(R.id.btn_radiobutton);
+        // OnClick Handler for Radio Button.
+        btnGender.setOnClickListener(view -> radioButtonHandler());
+
     }
 
     /**
-     * OnClick Handler for CheckBox Button.
+     * OnClick Handler implementation for CheckBox Button.
      */
     @RequiresApi(api = Build.VERSION_CODES.N)
     private void checkBoxButtonHandler() {
@@ -53,6 +64,24 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Checked - " + joiner, Toast.LENGTH_LONG).show();
         } else {
             Toast.makeText(this, "Please Select any Check Box.", Toast.LENGTH_LONG).show();
+        }
+    }
+
+    /**
+     * OnClick Handler implementation for RadioButton.
+     */
+    private void radioButtonHandler() {
+        // Get the checked radio button ID.
+        int radioButtonId = radioGroup.getCheckedRadioButtonId();
+
+        // If radioButtonId = -1. (Means nothing is selected)
+        if (radioButtonId == -1) {
+            Toast.makeText(this, "Nothing is selected.", Toast.LENGTH_LONG).show();
+        } else {
+            // Get the selected RadioButton by passing the radioButtonId in the findViewById.
+            RadioButton radioButton = findViewById(radioButtonId);
+            String gender = radioButton.getText().toString();
+            Toast.makeText(this, "You've selected - " + gender, Toast.LENGTH_LONG).show();
         }
     }
 }
