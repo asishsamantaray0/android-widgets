@@ -1,14 +1,19 @@
 package com.asish.widgetsdemo;
 
+import android.annotation.SuppressLint;
 import android.os.Build;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.MenuBuilder;
 import java.util.StringJoiner;
 
 public class MainActivity extends AppCompatActivity {
@@ -83,5 +88,47 @@ public class MainActivity extends AppCompatActivity {
             String gender = radioButton.getText().toString();
             Toast.makeText(this, "You've selected - " + gender, Toast.LENGTH_LONG).show();
         }
+    }
+
+    /**
+     * This method is used to inflate or display the menu in the UI.
+     */
+    @SuppressLint("RestrictedApi")
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_example, menu);
+
+        // This condition is used to display Icon in the menu items. (Icon with text in menu)
+        if (menu instanceof MenuBuilder) {
+            MenuBuilder menuBuilder = (MenuBuilder) menu;
+            menuBuilder.setOptionalIconsVisible(true);
+        }
+
+        return true;
+    }
+
+    /**
+     * This method will be called when menu item will be clicked.
+     */
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_upload) {
+            Toast.makeText(getApplicationContext(), "Upload Clicked.", Toast.LENGTH_LONG).show();
+            return true;
+        } else if (itemId == R.id.menu_download) {
+            Toast.makeText(getApplicationContext(), "Download Clicked.", Toast.LENGTH_LONG).show();
+            return true;
+        } else if (itemId == R.id.menu_share) {
+            Toast.makeText(getApplicationContext(), "Share Clicked.", Toast.LENGTH_LONG).show();
+            return true;
+        } else if (itemId == R.id.menu_save) {
+            Toast.makeText(getApplicationContext(), "Save Clicked.", Toast.LENGTH_LONG).show();
+            return true;
+        } else if (itemId == R.id.menu_mail) {
+            Toast.makeText(getApplicationContext(), "Mail Clicked.", Toast.LENGTH_LONG).show();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

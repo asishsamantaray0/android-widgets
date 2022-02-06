@@ -9,4 +9,9 @@
     <string name="male">Male</string>
     <string name="female">Female</string>
     <string name="button_for_radiobutton">Button For RadioGroup</string>
+    <string name="upload">Upload</string>
+    <string name="mail">Mail</string>
+    <string name="save">Save</string>
+    <string name="share">Share</string>
+    <string name="download">Download</string>
 </resources>

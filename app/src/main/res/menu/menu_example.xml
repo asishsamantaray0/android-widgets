@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_upload"
+        android:icon="@android:drawable/ic_menu_upload"
+        android:title="@string/upload" />
+
+    <item
+        android:id="@+id/menu_download"
+        android:icon="@android:drawable/arrow_down_float"
+        android:title="@string/download" />
+
+    <item
+        android:id="@+id/menu_share"
+        android:icon="@android:drawable/ic_menu_share"
+        android:title="@string/share" />
+
+    <item
+        android:id="@+id/menu_save"
+        android:icon="@android:drawable/ic_menu_save"
+        android:title="@string/save" />
+
+    <item
+        android:id="@+id/menu_mail"
+        android:icon="@android:drawable/sym_action_email"
+        android:title="@string/mail" />
+</menu>
